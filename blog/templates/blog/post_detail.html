@@ -7,6 +7,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title> {{ post.title }} - Blog </title>
+
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -39,11 +40,19 @@
                         <header class="mb-4">
                             <!-- Post title-->
                             <h1 class="fw-bolder mb-1"> {{ post.title }} </h1>
+                            <h5 class="text-muted"> {{ post.hook_text }} </h5>
+
                             <!-- Post meta content-->
                             <div class="text-muted fst-italic mb-2">Posted on January 1, 2022 by Start Bootstrap</div>
                             <!-- Post categories-->
                             <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
                             <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
+
+                            <!-- Author -->
+                            <p class="lead">
+                                by <a href="#">작성자명 쓸 위치(추후 예정) </a>
+                            </p>
+                            <hr />
                         </header>
                         <!-- Preview image figure-->
                         {% if post.head_image %}
@@ -55,6 +64,7 @@
                         <!-- Post content-->
                         <section class="mb-5">
                             <p class="fs-5 mb-4"> {{ post.content }}</p>
+
 
                             {% if post.file_upload %}
                             <a href="{{ post.file_upload.url }}"
