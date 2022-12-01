@@ -20,8 +20,7 @@ class TestView(TestCase):
         self.assertEqual(response.status_code, 200)
 
         #페이지 타이틀은  blog 이다
-        soup = BeautifulSoup(response.content, 'html.parser')\
-
+        soup = BeautifulSoup(response.content, 'html.parser')
         self.assertEqual(soup.title.text, 'Blog')
 
         # 네비게이션 바가 있다.
