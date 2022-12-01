@@ -1,101 +1,90 @@
 {% extends 'blog/base.html' %}
 
+{% block head_title %}
 
-    {% block head_title %}
+    {{ post.title }} - Blog
 
-        {{ post.title }} - Blog
+{% endblock %}
 
-    {% endblock %}
+{% block main_area %}
+                    <div id="post-area">
+                    <!-- Post content-->
+                    <article>
+                        <!-- Post header-->
+                        <header class="mb-4">
+                            <!-- Post title-->
+                            <h1 class="fw-bolder mb-1">{{ post.title }}</h1>
+                            <h5 class="text-muted">{{ post.hook_text }}</h5>
 
-        {% block main_area %}
-        <div id="post-area">
-            <!-- Title -->
-            <h1 class="mt-4">{{ post.title }}</h1>
-
-            <!-- Author -->
-            <p class="lead">
-                by
-                <a href="#">{{ post.author | upper }}</a>
-            </p>
-
-            <hr>
-
-            <!-- Date/Time -->
-            <p>Posted on {{ post.created_at }} by <a href="#">{{ post.author | upper }}</a></p>
-
-            <hr>
-
-            <!-- Preview Image -->
-            {% if post.head_image %}
-                <img class="img-fluid rounded" src="{{ post.head_image.url }}" alt="{{ post.title }} head_image">
-            {% else %}
-                <img class="img-fluid rounded" src="https://picsum.photos/seed/{{ post.id }}/800/200" alt="random_image">
-            {% endif %}
-
-
-            <hr>
-
-            <!-- Post Content -->
-            <p>{{ post.content }}</p>
-
-               {% if post.file_upload %}
-                            <a href="{{ post.file_upload.url }}"
-                            class="btn btn-outline-primary" role="button" download>
-                            <i class="fa-solid fa-file"></i>
-                                {{ post.get_file_name }} Download
-                            </a>
+                            <!-- Post meta content-->
+                            <div class="text-muted fst-italic mb-2">Posted on {{ post.created_at }}, 2022 by 나중에</div>
+                            <!-- Post categories-->
+                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
+                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
+                        </header>
+                        <!-- Preview image figure-->
+                        <figure class="mb-4">
+                            {% if post.head_image %}
+                                <img class="img-fluid rounded" src="{{ post.head_image.url }}" alt="{{ post.title }}" />
+                            {% else %}
+                                <img class="card-img-top" src="https://picsum.photos/seed/{{ post.id }}/800/200" alt="random_image" />
                             {% endif %}
-            <hr>
-        </div>
-
-        <div id="comment-area">
-            <!-- Comments Form -->
-            <div class="card my-4">
-                <h5 class="card-header">Leave a Comment:</h5>
-                <div class="card-body">
-                    <form>
-                        <div class="form-group">
-                            <textarea class="form-control" rows="3"></textarea>
+                        </figure>
+                        <!-- Post content-->
+                        <section class="mb-5">
+                            {{ post.content }}
+                        </section>
+                        {% if post.file_upload %}
+                            <a href="{{ post.file_upload.url }}"
+                               class="btn btn-outline-primary" role="button" download>
+                                <i class="fa-solid fa-file"></i> {{ post.get_file_name }}
+                            </a>
+                        {% endif %}
+                    </article>
+                    </div>
+                    <!-- Comments section-->
+                    <div id="comment-area">
+                    <section class="mb-5">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <!-- Comment form-->
+                                <form class="mb-4"><textarea class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea></form>
+                                <!-- Comment with nested comments-->
+                                <div class="d-flex mb-4">
+                                    <!-- Parent comment-->
+                                    <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                                    <div class="ms-3">
+                                        <div class="fw-bold">Commenter Name</div>
+                                        If you're going to lead a space frontier, it has to be government; it'll never be private enterprise. Because the space frontier is dangerous, and it's expensive, and it has unquantified risks.
+                                        <!-- Child comment 1-->
+                                        <div class="d-flex mt-4">
+                                            <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                                            <div class="ms-3">
+                                                <div class="fw-bold">Commenter Name</div>
+                                                And under those conditions, you cannot establish a capital-market evaluation of that enterprise. You can't get investors.
+                                            </div>
+                                        </div>
+                                        <!-- Child comment 2-->
+                                        <div class="d-flex mt-4">
+                                            <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                                            <div class="ms-3">
+                                                <div class="fw-bold">Commenter Name</div>
+                                                When you put money directly to a problem, it makes a good headline.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Single comment-->
+                                <div class="d-flex">
+                                    <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                                    <div class="ms-3">
+                                        <div class="fw-bold">Commenter Name</div>
+                                        When I look at the universe and all the ways the universe wants to kill us, I find it hard to reconcile that with statements of beneficence.
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
-            </div>
-
-            <!-- Single Comment -->
-            <div class="media mb-4">
-                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                <div class="media-body">
-                    <h5 class="mt-0">Commenter Name</h5>
-                    Crass.
-                </div>
-            </div>
-
-            <!-- Comment with nested comments -->
-            <div class="media mb-4">
-                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                <div class="media-body">
-                    <h5 class="mt-0">Commenter Name</h5>
-                    Cras sante slputate fringilla. Donec lacinia congue felis in faucibus.
-
-                    <div class="media mt-4">
-                        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                        <div class="media-body">
-                            <h5 class="mt-0">Commenter Name</h5>
-                            Cvulputate at,  ac nue felis in faucibus.
-                        </div>
+                    </section>
                     </div>
 
-                    <div class="media mt-4">
-                        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                        <div class="media-body">
-                            <h5 class="mt-0">Commenter Name</h5>
-                            Cicibus.
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        {% endblock %}
+{% endblock %}
