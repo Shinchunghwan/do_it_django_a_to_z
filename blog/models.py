@@ -1,6 +1,6 @@
 import os.path
 import os
-
+from django.contrib.auth.models import User
 
 from django.db import models
 
@@ -19,9 +19,10 @@ class Post(models.Model):
 
     #author : 추후 추가예정
 
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'[{self.pk}]   {self.title}'
+        return f'[{self.pk}]   {self.title} :: {self.author}'
 
 
     def get_absolute_url(self):
