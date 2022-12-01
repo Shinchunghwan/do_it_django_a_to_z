@@ -1,5 +1,5 @@
 from django.test import TestCase, Client
-
+from django.contrib.auth.models import User
 from bs4 import BeautifulSoup
 from .models import Post
 
@@ -8,6 +8,14 @@ from .models import Post
 class TestView(TestCase):
     def setUp(self):
         self.client = Client()
+        self.user_trump = User.objects.create_user(
+            username='trump',
+            password='somepassword'
+        )
+        self.user_obama = User.objects.create_user(
+            username='obama',
+            password='somepassword'
+        )
 
 
     # navbar 이동설정 해주기.
@@ -64,10 +72,12 @@ class TestView(TestCase):
         post_001 = Post.objects.create(
             title='첫번째 포스트 입니다.',
             content='Hello word. We are the World',
+            author=self.user_trump
         )
         post_002 = Post.objects.create(
             title='두번째 포스트 입니다.',
             content='1등이 전부는 아니잖어요',
+            author=self.user_obama
         )
 
         self.assertEqual(Post.objects.count(), 2)
