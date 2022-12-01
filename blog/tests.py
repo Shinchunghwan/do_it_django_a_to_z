@@ -76,7 +76,7 @@ class TestView(TestCase):
         )
 
         # 그 포스트의 url 은 blog/1 이다.
-        self.assertEqual(post_001.get_absolute_url(), '/blog/1')
+        self.assertEqual(post_001.get_absolute_url(), '/blog/1/')
 
         # 첫번째 포스트의 상세페이지로
         # 첫번째 포스트url로 접근하면 정삭적으로 작동한다
@@ -86,7 +86,7 @@ class TestView(TestCase):
 
         # 포스트 목록 페이지와 똑같은 네비게이션 바가 있다.
         navbar = soup.nav
-        self.assertin('Blog', navbar.text)
+        self.assertIn('Blog', navbar.text)
         self.assertIn('About Me', navbar.text)
 
         # 첫번째 포스트의 제목이 웹 브라우저 탭 타이틀에 들어있다
