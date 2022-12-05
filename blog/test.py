@@ -12,6 +12,8 @@ class TestView(TestCase) :
         self.user_obama = User.objects.create_user(
             username='obama', password='somepassword'
         )
+        self.user_obama.is_staff = True
+        self.user_obama.save()
 
         self.category_programming = Category.objects.create(name="programming",
                                                             slug="programming")
@@ -106,7 +108,10 @@ class TestView(TestCase) :
         self.assertNotEqual(response.status_code, 200)
 
         self.client.login(username='trump', password='somepassword')
+        response = self.client.get('/blog/create_post/')
+        self.assertNotEqual(response.status_code, 200)
 
+        self.client.login(username='obama', password='somepassword')
         response = self.client.get('/blog/create_post/')
         self.assertEqual(response.status_code, 200)
         soup = BeautifulSoup(response.content, 'html.parser')
@@ -123,9 +128,10 @@ class TestView(TestCase) :
             }
         )
         self.assertEqual(Post.objects.count(), 4)
+
         last_post = Post.objects.last()
         self.assertEqual(last_post.title, "Post From 만들기")
-        self.assertEqual(last_post.author.username, 'trump')
+        self.assertEqual(last_post.author.username, 'obama')
 
 
     def test_post_list(self):
