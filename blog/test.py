@@ -19,7 +19,7 @@ class TestView(TestCase) :
                                                             slug="programming")
         self.category_music = Category.objects.create(name="music", slug="music")
 
-        self.tag_python_kor = Tag.objects.create(name='파이썬 공부', slug='파이썬-공부')
+        self.tag_python_kor = Tag.objects.create(name='파이썬 공부', slug='파이썬 공부')
         self.tag_python = Tag.objects.create(name='python', slug='python')
         self.tag_hello = Tag.objects.create(name='hello', slug='hello')
 
@@ -82,8 +82,8 @@ class TestView(TestCase) :
         response = self.client.post(
             update_post_url,
             {
-                'title': '세번째 포스트를 수정했습니다.',
-                'content': '안녕? 세계? 우리는 하나',
+                'title': '세 번째 포스트를 수정했습니다.',
+                'content': '안녕 세계? 우리는 하나',
                 'category': self.category_music.pk,
                 'tags_str': '파이썬 공부; 한글 태그, some tag'
             },
@@ -92,8 +92,8 @@ class TestView(TestCase) :
 
         soup = BeautifulSoup(response.content, 'html.parser')
         main_area = soup.find('div', id='main-area')
-        self.assertIn('세번째 포스트를 수정했습니다.', main_area.text)
-        self.assertIn('안녕? 세계? 우리는 하나', main_area.text)
+        self.assertIn('세 번째 포스트를 수정했습니다.', main_area.text)
+        self.assertIn('안녕 세계? 우리는 하나', main_area.text)
         self.assertIn(self.category_music.name, main_area.text)
         self.assertIn('파이썬 공부', main_area.text)
         self.assertIn('한글 태그', main_area.text)
