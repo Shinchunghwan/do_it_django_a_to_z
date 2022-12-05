@@ -44,9 +44,9 @@
                                 <img class="card-img-top" src="https://picsum.photos/seed/{{ post.id }}/800/200" alt="random_image" />
                             {% endif %}
                         </figure>
-                        <!-- Post content-->
+                        <!--in Post content-->
                         <section class="mb-5">
-                            {{ post.content }}
+                            <p>{{ post.get_content_markdown | safe }}<p>
                         </section>
 
 
