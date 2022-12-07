@@ -86,27 +86,27 @@
             </div>
 
             <div class="col-lg-4">
-                <div class="card" data-toggle="modal" data-target="#2mm">
+                <div class="card" data-toggle="modal" data-target="#achart">
                     <img class="card-img-top" src="{% static 'single_pages/images/2M.jpg' %}">  <!-- 두번째 프로파일 사진 -->
 
                     <div class="card-body">
-                        <h5 class="card-title"> 반사망원경 </h5>
-                        <p> 천체관측을 할때 많이 쓰이는 반사망원경 입니다. </p>
+                        <h5 class="card-title"> 반사 망원경 </h5>
+                        <p> 천체관측을 할때 많이 쓰이는 반사 망원경 입니다. </p>
                     </div>
                 </div>
             </div>
 <!--            -->
-<!--            <div class="col-lg-4">-->
-<!--                <div class="card" data-toggle="modal" data-target="#">-->
-<!--                    <img class="card-img-top" src="#">  &lt;!&ndash; 첫번째 프로파일 사진 &ndash;&gt;-->
+            <div class="col-lg-4">
+                <div class="card" data-toggle="modal" data-target="#bchart">
+                    <img class="card-img-top" src="{% static 'single_pages/images/3M.jpg' %}">  <!-- 첫번째 프로파일 사진 -->
 
-<!--                    <div class="card-body">-->
-<!--                        <h5 class="card-title"> 세번째 프로파일 제목</h5>-->
-<!--                        <p> 세번째 프로파일 내용...</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
+                    <div class="card-body">
+                        <h5 class="card-title"> 굴절 망원경 </h5>
+                        <p> 천체관측을 할때 많이 쓰이는 굴절 망원경 입니다. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
  <!-- Modal -->
@@ -142,11 +142,11 @@
    </div>
 
     <!-- profile 2 Modal -->
-   <div class="modal fade" id="2mm" tabindex="-1" role="dialog" aria-labelledby="2mmModalLabel" aria-hidden="true">
+   <div class="modal fade" id="achart" tabindex="-1" role="dialog" aria-labelledby="achartModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id=" 2mmModalLabel"> 반사 망원경 입니다. </h5>
+                <h5 class="modal-title" id=" achartModalLabel"> 반사 망원경 입니다. </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -157,8 +157,10 @@
                         <img class="img-fluid" src="{% static 'single_pages/images/2M.jpg' %}">
                     </div>
                     <div class="col-lg-5">
-                        <p>.</p>
-                        <button type="button" class="btn btn-light"><i class="fas fa-chalkboard-teacher"></i> 인프런</button>
+                        <p>천체관측에 많이 쓰여지는 반사망원경 입니다.</p>
+                        <p>뉴턴식과 카세그레인식 반사망원경으로 종류를 나눌수 있습니다.</p>
+                        <p> 굴절식 망원경보다는 저렴하지만, 대기온도와 외부오염에 약하다는 단점이 있습니다.</p>
+<!--                        <button type="button" class="btn btn-light"><i class="fas fa-chalkboard-teacher"></i> 인프런</button>-->
                     </div>
                 </div>
             </div>
@@ -169,34 +171,35 @@
     </div>
 </div>
 
-
-<!--    &lt;!&ndash; profile 3 Modal &ndash;&gt;-->
-<!--   <div class="modal fade" id="bird" tabindex="-1" role="dialog" aria-labelledby="birdModalLabel" aria-hidden="true">-->
-<!--    <div class="modal-dialog modal-lg" role="document">-->
-<!--        <div class="modal-content">-->
-<!--            <div class="modal-header">-->
-<!--                <h5 class="modal-title" id="birdModalLabel">파이썬으로 통계업무 자동화하기</h5>-->
-<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
-<!--                    <span aria-hidden="true">&times;</span>-->
-<!--                </button>-->
-<!--            </div>-->
-<!--            <div class="modal-body">-->
-<!--                <div class="row">-->
-<!--                    <div class="col-lg-7">-->
-<!--                        <img class="img-fluid" src="{% static 'single_pages/images/bird.png' %}">-->
-<!--                    </div>-->
-<!--                    <div class="col-lg-5">-->
-<!--                        <p>Python, Django, Pandas, python-docx로 통계업무 자동화한 내용을 파이콘에서 발표했습니다.</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="modal-footer">-->
-<!--                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--   </div>-->
+     <div class="modal fade" id="bchart" tabindex="-1" role="dialog" aria-labelledby="bchartModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id=" bchartModalLabel"> 굴절 망원경 입니다. </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <img class="img-fluid" src="{% static 'single_pages/images/3M.jpg' %}">
+                    </div>
+                    <div class="col-lg-5">
+                        <p>천체관측에 많이 쓰여지는 굴절망원경 입니다.</p>
+                        <p>갈릴레이식과 케플러식 망원경으로 종류를 구분할 수 있습니다.</p>
+                        <p>반사식 망원경보다는 가격이 비싸지만, 반사망원경이 가지는 단점에 대해 면역력이 있습니다.</p>
+<!--                        <button type="button" class="btn btn-light"><i class="fas fa-chalkboard-teacher"></i> 인프런</button>-->
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
     </div>
+</div>
+
 
 
 
