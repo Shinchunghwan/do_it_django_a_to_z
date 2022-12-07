@@ -1,3 +1,13 @@
 .margin-for-footer{
     margin-bottom: 130px
 }
+
+
+@font-face{
+  font-family:'bitbit';
+  src:url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff'),url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff2') ;
+}
+
+*{ss
+font-family:'bitbit';
+}
