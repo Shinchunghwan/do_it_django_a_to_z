@@ -1,0 +1,23 @@
+body{
+  background: url('/static/single_pages/images/main.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+section{
+    margin-bottom: 150px;
+}
+
+.card{
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+@font-face{
+  font-family:'bitbit';
+  src:url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff'),url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff2') ;
+}
+
+*{
+font-family:'bitbit';
+}
